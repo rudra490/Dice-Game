@@ -1,0 +1,322 @@
+// Variables
+$main-font: "Jost", sans-serif;
+$bg-color: #1c1b22;
+$color-primary: #00ff99;
+$shadow-primary: #1e94659c;
+$color-rose: #f43f5e;
+$color-green: #10b981;
+
+$popUp-bg: rgba(35, 34, 41, 0.98);
+
+$white: #d8d8d8;
+$font-size-large: 36px;
+$font-size-medium: 24px;
+$font-size-semibold: 20px;
+
+$border-gray: rgba(97, 97, 97, 0.5);
+$shadowColor: 0px 10px 50px 0px rgba($shadow-primary, 0.08);
+$cardBorder: 1.5px solid #787878ad;
+
+/* Mixins */
+/* Mixins */
+/* Mixins */
+
+@mixin card-title-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5px;
+  margin-top: 25px;
+
+  h3 {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-style: italic;
+    font-size: $font-size-medium;
+    color: $color-primary;
+    background-color: #212b27bb;
+    border-radius: 5px;
+    padding: 5px;
+
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  div {
+    border: 2px solid #00ff9967;
+    border-radius: 5px;
+    min-height: 100px;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* overflow: hidden; */
+}
+
+body {
+  color: $white;
+  font-family: $main-font;
+  overflow-x: hidden;
+  padding: 15px;
+  background-image: url("../images/design/dice-bg.jpg");
+  background-position: center center;
+  backdrop-filter: blur(5px) brightness(20%);
+}
+
+main {
+  min-height: calc(100vh - 150px);
+  max-width: 1140px;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+/* Utility Classes:: */
+
+.italic {
+  font-style: italic;
+}
+.text-primary {
+  color: $color-primary;
+}
+.text-center {
+  text-align: center;
+}
+.text-medium {
+  font-size: $font-size-medium;
+}
+.text-bold {
+  font-weight: 600;
+}
+.text-justify {
+  text-align: justify;
+}
+
+.mt-2 {
+  margin-top: 1rem;
+}
+.mt-5 {
+  margin-top: 2rem;
+}
+.my-5 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.position-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main Styles */
+.page-title {
+  text-align: center;
+  color: $color-primary;
+  // margin-top: 10px;
+  // margin-bottom: 15px;
+  font-size: $font-size-large;
+}
+
+.main-section {
+  background-color: rgba(44, 51, 33, 0.11);
+  backdrop-filter: opacity(10%);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px #afffdf25;
+  border: 1.5px solid #787878ad;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 8px;
+  margin-bottom: 30px;
+}
+
+.player-name {
+  text-align: center;
+  font-size: $font-size-large;
+  color: $color-primary;
+  // text-decoration: underline
+}
+
+.dice-area {
+  @include card-title-layout;
+}
+.score-area {
+  @include card-title-layout;
+}
+
+// Rules Area Design
+.rule-title-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  border-bottom: 2px solid rgba(202, 255, 235, 0.541);
+  padding-bottom: 5px;
+  p:first-child {
+    font-size: $font-size-semibold;
+    font-weight: 700;
+    color: $color-primary;
+  }
+  p:last-child {
+    border: 1px solid $color-green;
+    padding: 2px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+    user-select: none;
+    &:active {
+      transform: translate(-0%, 3px);
+    }
+  }
+}
+
+.details-content {
+  overflow: hidden;
+  max-height: 500px;
+  transition: all 0.6s ease-in-out;
+  opacity: 1;
+}
+
+.details-content.closed {
+  max-height: 0;
+  opacity: 0;
+}
+
+.toggle-button {
+  cursor: pointer;
+}
+
+.dice-image {
+  display: block;
+  height: 150px;
+  margin: 5px;
+}
+
+.score-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: rgb(204, 204, 204);
+  text-align: center;
+}
+.score {
+  font-size: $font-size-large;
+  font-weight: 600;
+  color: $color-primary;
+  text-align: center;
+}
+
+// BTN Styles::
+
+.btn-section {
+  grid-column-start: 1;
+  grid-column-end: 3;
+
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn {
+  color: $bg-color;
+  background: none;
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+  background-color: #00ff998e;
+  backdrop-filter: blur(10px);
+  font-size: inherit;
+  padding: 0.7rem 2.5rem;
+  border-radius: 50rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+}
+
+.btn:active {
+  transform: translate(-0%, 3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.btn:focus {
+  outline: none;
+}
+
+/* Main Styles END */
+
+/* POP UP CSS */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup-content {
+  background-color: $popUp-bg;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1.5px solid #888;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 600px;
+  max-height: 100px;
+  text-align: center;
+  position: relative;
+}
+
+.close {
+  color: $color-rose;
+  /* float: right; */
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  right: 10px;
+  top: 0;
+}
+
+.close:hover,
+.close:focus {
+  color: $color-rose;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#pop-up-title {
+  font-size: $font-size-semibold;
+  font-weight: 700;
+  color: $color-primary;
+  text-align: center;
+  margin-bottom: 2px;
+  text-transform: capitalize;
+}
+#pop-up-message {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 2px;
+  text-transform: capitalize;
+}
+
+/* Footer CSS */
+footer {
+  width: 100%;
+  margin-top: 50px;
+}
+footer a {
+  color: $color-primary;
+  text-decoration: underline;
+}
+.footer_text {
+  text-align: center;
+}

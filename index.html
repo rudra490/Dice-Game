@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="./images/design/favicon.ico"
+      type="image/x-icon"
+    />
+    <title>Dice Game 🎲</title>
+    <!--Link Fonts:: -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+NO:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS:: -->
+    <link rel="stylesheet" href="./styles/style.css" />
+    <!-- JS:: -->
+    <script src="./js/main.js" defer="defer"></script>
+  </head>
+  <body>
+    <header>
+      <h1 class="page-title">Dice Game 🎲</h1>
+    </header>
+
+    <!-- Main Display Area -->
+    <main>
+      <section class="main-section">
+        <div>
+          <h2 class="player-name">😎 You</h2>
+          <div class="dice-area">
+            <h3>Your Dice</h3>
+            <div class="position-center">
+              <img
+                class="dice-image"
+                id="player-dice-1"
+                src="./images/dice/dice_1.png"
+                alt="dice-img"
+              />
+            </div>
+            <div class="position-center">
+              <img
+                class="dice-image"
+                id="player-dice-2"
+                src="./images/dice/dice_1.png"
+                alt="dice-img"
+              />
+            </div>
+          </div>
+          <div class="score-area">
+            <h3>Your Score</h3>
+            <div class="position-center">
+              <p class="score-title">Score This Round</p>
+              <p class="score" id="player-round-score">00</p>
+            </div>
+            <div class="position-center">
+              <p class="score-title">Total Score</p>
+              <p class="score" id="player-total-score">00</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h2 class="player-name">🤖 Computer</h2>
+          <div class="dice-area">
+            <h3>Computer's Dice</h3>
+            <div class="position-center">
+              <img
+                class="dice-image"
+                id="computer-dice-1"
+                src="./images/dice/dice_5.png"
+                alt="dice-img"
+              />
+            </div>
+            <div class="position-center">
+              <img
+                class="dice-image"
+                id="computer-dice-2"
+                src="./images/dice/dice_3.png"
+                alt="dice-img"
+              />
+            </div>
+          </div>
+          <div class="score-area">
+            <h3>Computer's Score</h3>
+            <div class="position-center">
+              <p class="score-title">Score This Round</p>
+              <p class="score" id="computer-round-score">00</p>
+            </div>
+            <div class="position-center">
+              <p class="score-title">Total Score</p>
+              <p class="score" id="computer-total-score">00</p>
+            </div>
+          </div>
+        </div>
+        <div class="btn-section">
+          <button class="btn" id="new-game">🔄 New Game</button>
+          <button class="btn" id="roll-dice">🎲 Roll Dice</button>
+        </div>
+      </section>
+
+      <!-- How to play -->
+      <section>
+        <div>
+          <div class="rule-title-area">
+            <p>How to Play :</p>
+            <p id="instructions-action" class="toggle-button">Close ⬇️</p>
+          </div>
+          <!-- <hr> -->
+          <div id="instructions-details" class="details-content">
+            <ul>
+              <li>👉 To start, click the 'Roll Dice' button.</li>
+              <li>
+                👉 To advance to the next round, click the 'Roll Dice' button
+                again.
+              </li>
+              <li>
+                👉 After three rounds, the game is over and the final score is
+                calculated.
+              </li>
+              <li>
+                👉 If you want to play again, click the 'New Game' button or
+                refresh the page.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- Rules -->
+      <section>
+        <div>
+          <div class="rule-title-area">
+            <p>Game Rules :</p>
+            <p id="rule-action" class="toggle-button">Close ⬇️</p>
+          </div>
+          <!-- <hr> -->
+          <div class="rule-details details-content">
+            <ul>
+              <li>
+                📌 Each round, you and the computer both roll a pair of dice.
+              </li>
+              <li>
+                📌 Your score for that round will be based on the sum of the
+                dice.
+              </li>
+              <li>
+                📌 If you roll doubles (e.g. a 3 and a 3) then your score is
+                multiplied by 2.
+              </li>
+              <li>📌 Rolling a 1 will give you a score of 0 for that round.</li>
+              <li>
+                📌 The player who has the most points at the end of three rounds
+                is the winner.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Audio -->
+    <audio
+      id="dice-sound"
+      src="./sounds/dice-roll-sound.mp3"
+      preload="auto"
+    ></audio>
+    <audio id="game-end" src="./sounds/goodresult.mp3" preload="auto"></audio>
+
+    <!-- Background Music -->
+
+
+    <audio id="bg-sound" src="./sounds/game-bg.mp3" preload="auto" loop autoplay></audio>
+
+    <!-- Pop-up Element -->
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <span class="close">&times;</span>
+        <p id="pop-up-title">pop up title</p>
+        <p id="pop-up-message">pop up message</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p class="footer_text">
+        Copyright © 2024 | Developed & Maintained By
+        <a href="#">Dice Room.</a>
+        <!-- <a href="#">Rudra Saha.</a> -->
+      </p>
+    </footer>
+
+  </body>
+</html>
